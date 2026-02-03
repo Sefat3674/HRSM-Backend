@@ -1,0 +1,19 @@
+SELECT TOP (1000)
+    ws.MachineId,
+    wso.WIPSchedulingId,
+    ws.Name AS ScheduledName,
+    wso.OperatorId,
+    ws.MoldWIPId,
+    ws.StartTime,
+    ws.EndTime,
+    ws.TotalTime,
+    ws.Status,
+    mrh.FromTime,
+    mrh.ToTime,
+    mrh.TimeDiff,
+    mrh.WIPSchedulingWiseOperatorId
+FROM WIPSchedulingWiseOperator AS wso
+INNER JOIN WIPScheduling AS ws
+    ON wso.WIPSchedulingId = ws.Id
+LEFT JOIN MachineRuntimeHistory AS mrh
+    ON wso.WIPSchedulingId = mrh.WIPSchedulingWiseOperatorId;

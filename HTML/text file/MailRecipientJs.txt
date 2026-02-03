@@ -1,0 +1,141 @@
+// Make currentMailId global
+var currentMailId = null;
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Load the mail type table
+    loadMailTypeTable();
+
+    var sendMailModalEl = document.getElementById('sendMailModal');
+    var sendMailModal = new bootstrap.Modal(sendMailModalEl);
+
+    // Initialize Select2 when modal is shown
+    $('#sendMailModal').on('shown.bs.modal', function () {
+        $('.single-select').select2({
+            placeholder: "--Select--",
+            allowClear: true,
+            width: '100%',
+            dropdownParent: $('#sendMailModal')
+        });
+    });
+
+    // Destroy Select2 on modal hide
+    $('#sendMailModal').on('hidden.bs.modal', function () {
+        $('.single-select').select2('destroy');
+    });
+
+    window.SendMail = function (id) {
+        currentMailId = id;
+
+        // Reset dependent fields only — do NOT reset BusinessUnit
+        $('#LocationIdSearch').val(null).trigger('change');
+        $('#SectionIdSearch').val(null).trigger('change');
+        $('#emailTo').val("");
+        $('#emailCC').val("");
+        $('#details').val("");
+
+        sendMailModal.show();
+
+        // Fetch emails immediately if BusinessUnit already selected
+        if ($('#BusinessUnitIdSearch').val()) {
+            fetchEmails();
+        }
+    };
+
+    // Trigger fetchEmails when BusinessUnit, Location, or Section changes
+    $('#BusinessUnitIdSearch, #LocationIdSearch, #SectionIdSearch').on('change', function () {
+        fetchEmails();
+    });
+
+    function fetchEmails() {
+        if (!currentMailId) return;
+
+        const businessUnitId = $('#BusinessUnitIdSearch').val();
+        if (!businessUnitId) return; // only fetch if Business Unit is chosen
+
+        // Clear current values first
+        $('#emailTo').val("");
+        $('#emailCC').val("");
+
+        $.get("/emailrecipient/getemails", {
+            mailTypeId: currentMailId,
+            businessUnitId: businessUnitId,
+            locationId: $('#LocationIdSearch').val() || null,
+            sectionId: $('#SectionIdSearch').val() || null
+        })
+            .done(function (emails) {
+                // Ensure To goes in To field, CC goes in CC field
+                $('#emailTo').val(emails.to ? emails.to.join(', ') : "");
+                $('#emailCC').val(emails.cc ? emails.cc.join(', ') : "");
+            })
+            .fail(function () {
+                toastr.error("Failed to load emails.");
+            });
+    }
+
+    // Confirm Send Mail
+    $('#confirmSendMail').on('click', function () {
+        if (!currentMailId) return;
+
+        const emailToRaw = $('#emailTo').val() || "";
+        const emailCCRaw = $('#emailCC').val() || "";
+
+        const emailTo = [...new Set(
+            emailToRaw.split(/[\s,]+/).map(e => e.trim()).filter(e => e)
+        )];
+        const emailCC = [...new Set(
+            emailCCRaw.split(/[\s,]+/).map(e => e.trim()).filter(e => e)
+        )];
+
+       
+
+        const mailData = {
+            id: currentMailId,
+            businessUnitId: $('#BusinessUnitIdSearch').val() || null,
+            locationId: $('#LocationIdSearch').val() || null,
+            sectionId: $('#SectionIdSearch').val() || null,
+            emailTo: emailTo.join(','),
+            emailCC: emailCC.join(','),
+            details: $('#details').val() || ""
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "/emailrecipient/sendmail",
+            data: mailData,
+            success: function (res) {
+                if (res.success) {
+                    toastr.success("Mail info saved successfully!");
+                    sendMailModal.hide();
+                } else {
+                    toastr.error(res.message || "Failed to save mail info.");
+                }
+            },
+            error: function () {
+                toastr.error("Unexpected error occurred.");
+            }
+        });
+    });
+});
+
+// Initialize DataTable
+function loadMailTypeTable() {
+    $("#mailTypeTable").DataTable({
+        ajax: { url: "/mailtype/getall", type: "GET" },
+        columns: [
+            { data: "id" },
+            { data: "name" },
+            {
+                data: null,
+                orderable: false,
+                render: function (data, type, row) {
+                    return `<button class="btn btn-sm btn-success rounded-circle shadow-sm" 
+                        style="width: 34px; height: 34px;" 
+                        onclick="SendMail(${row.id})" 
+                        data-bs-toggle="tooltip" title="Send Mail">
+                        <i class="fas fa-play"></i>
+                    </button>`;
+                }
+            }
+        ]
+    });
+}

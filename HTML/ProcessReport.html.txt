@@ -1,0 +1,1150 @@
+
+                        <!DOCTYPE html>
+                        <html>
+                        <body style='margin:0;padding:0;background-color:#f4f6f9;font-family:Times New Roman, Times, serif;color:#2d3748;'>
+
+                        <table width='100%' cellpadding='0' cellspacing='0' style='background-color:#f4f6f9;'>
+                          <tr>
+                            <td align='center' style='padding:20px;'>
+
+                              <!-- MAIN CONTAINER -->
+                              <table width='600' cellpadding='0' cellspacing='0' style='background-color:#ffffff;border:1px solid #dddddd;'>
+
+                                <!-- HEADER -->
+                                <tr>
+                                  <td style='background-color:#a3bffa;padding:30px;'>
+                                    <h1 style='margin:0;font-size:28px;font-weight:bold;color:#1a202c;font-family:Times New Roman, Times, serif;'>
+                                      REL-THA Report
+                                    </h1>
+                                    <p style='margin-top:5px;font-size:16px;color:#1a202c;font-family:Times New Roman, Times, serif;'>
+                                      Monday, 05 January 2026
+                                    </p>
+                                  </td>
+                                </tr>
+
+                                <!-- BODY -->
+                                <tr>
+                                  <td style='padding:30px;font-family:Times New Roman, Times, serif;'>
+
+                                    <!-- SECTION TITLE -->
+                                    <table width='100%' cellpadding='0' cellspacing='0'>
+                                      <tr>
+                                        
+                                      </tr>
+                                    </table>
+                        
+                                <h3 style='font-size:20px; margin:25px 0 15px; font-weight:bold; color:#333;
+                                           border-left:5px solid #667eea; padding-left:12px;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Line Performance Overview
+                                </h3>
+                            <table width='100%' cellpadding='0' cellspacing='0'
+                                   style='border-collapse:collapse; text-align:center;
+                                          font-family:Times New Roman, Times, serif; margin-bottom:25px;'>
+                                <tr>
+                                    <th style='padding:10px; background:#a3bffa; color:#1a202c;
+                                               font-size:15px; font-weight:bold; border-bottom:1px solid #ddd;
+                                               text-align:left;'>Line</th>
+
+                                    <th style='padding:10px; background:#a3bffa; color:#1a202c;
+                                               font-size:15px; font-weight:bold; border-bottom:1px solid #ddd;'>
+                                        RunTime (%)
+                                    </th>
+
+                                    <th style='padding:10px; background:#a3bffa; color:#1a202c;
+                                               font-size:15px; font-weight:bold; border-bottom:1px solid #ddd;'>
+                                        Efficiency (%)
+                                    </th>
+
+                                    <th style='padding:10px; background:#a3bffa; color:#1a202c;
+                                               font-size:15px; font-weight:bold; border-bottom:1px solid #ddd;'>
+                                        Reliability (%)
+                                    </th>
+                                </tr>
+                                    <tr style='background:#ffffff; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            Heating Tube
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>0.0 ↓</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>0.0 ↓</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>100.0 ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            Base Clamp
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>110.4 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#dd6b20; font-weight:bold;'>70.5 →</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#d69e2e; font-weight:bold;'>56.0 →</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#ffffff; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            Body
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>1003.5 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>85.0 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>11.9 ↓</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            Heating Plate
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>28.9 ↓</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>100.0 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>83.6 ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#ffffff; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            Middle Tank
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#dd6b20; font-weight:bold;'>66.0 →</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#dd6b20; font-weight:bold;'>78.7 →</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#dd6b20; font-weight:bold;'>64.0 →</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            Final Assembly
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>0.0 ↓</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>0.0 ↓</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>100.0 ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#ffffff; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            SS Pot
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>94.7 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#c53030; font-weight:bold;'>27.6 ↓</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#dd6b20; font-weight:bold;'>63.6 →</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9; vertical-align:middle;'>
+                                        <td style='padding:8px; text-align:left; font-weight:bold;
+                                                   border-bottom:1px solid #eee;'>
+                                            AL Pot
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>112.3 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>100.0 ↑</span>
+                                        </td>
+
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            <span style='color:#dd6b20; font-weight:bold;'>61.9 →</span>
+                                        </td>
+                                    </tr></table><h3>Actual vs Standard Production by Line</h3><div class='chart-container'><img src='data:image/png;base64,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' alt='Production Chart' /></div>
+                                <h3 style='font-size:20px; margin:25px 0 15px; font-weight:bold; color:#333;
+                                           border-left:5px solid #667eea; padding-left:12px;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Top 5 Good & Poor Performing Machines
+                                </h3>
+                                <table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse;'>
+                                <tr>
+                                <td width='50%' valign='top' style='padding-right:10px;'>
+
+                                <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                            border-top:4px solid #48bb78;
+                                            box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                <h3 style='margin:0 0 10px; font-size:18px; color:#2f855a;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Section Wise Good Performing Machines
+                                </h3>
+
+                                <table width='100%' cellpadding='0' cellspacing='0'
+                                       style='border-collapse:collapse; font-family:Times New Roman, Times, serif;'>
+
+                                <tr>
+                                    <th style='padding:8px; background:#c6f6d5; text-align:left;
+                                               border-bottom:1px solid #ddd;'>Section</th>
+                                    <th style='padding:8px; background:#c6f6d5; text-align:left;
+                                               border-bottom:1px solid #ddd;'>Machine</th>
+                                    <th style='padding:8px; background:#c6f6d5; text-align:center;
+                                               border-bottom:1px solid #ddd;'>Performance</th>
+                                </tr>
+                                    <tr style='background:#ffffff;'>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › Home Appliance
+                                        </td>
+                                        <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            Assembly Line-9
+                                        </td>
+                                        <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>92.4% ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9;'>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › Home Appliance
+                                        </td>
+                                        <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            Assembly Line-6
+                                        </td>
+                                        <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>92.0% ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#ffffff;'>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › PCBA
+                                        </td>
+                                        <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            PCB Assembly Line-2
+                                        </td>
+                                        <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>91.6% ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9;'>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › PCBA
+                                        </td>
+                                        <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            PCB Assembly Line-1
+                                        </td>
+                                        <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>91.6% ↑</span>
+                                        </td>
+                                    </tr>
+                                    <tr style='background:#ffffff;'>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › TV Production
+                                        </td>
+                                        <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            TV Assembly Line 
+                                        </td>
+                                        <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                            <span style='color:#2f855a; font-weight:bold;'>91.2% ↑</span>
+                                        </td>
+                                    </tr></table></div></td>
+                                    <td width='50%' valign='top' style='padding-left:10px;'>
+
+                                    <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                                border-top:4px solid #f56565;
+                                                box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                    <h3 style='margin:0 0 10px; font-size:18px; color:#c53030;
+                                               font-family:Times New Roman, Times, serif;'>
+                                        Section Wise Poor Performing Machines
+                                    </h3>
+
+                                    <table width='100%' cellpadding='0' cellspacing='0'
+                                           style='border-collapse:collapse; font-family:Times New Roman, Times, serif;'>
+
+                                    <tr>
+                                        <th style='padding:8px; background:#fed7d7; text-align:left;
+                                                   border-bottom:1px solid #ddd;'>Section</th>
+                                        <th style='padding:8px; background:#fed7d7; text-align:left;
+                                                   border-bottom:1px solid #ddd;'>Machine</th>
+                                        <th style='padding:8px; background:#fed7d7; text-align:center;
+                                                   border-bottom:1px solid #ddd;'>Performance</th>
+                                    </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › Kettle
+                                    </td>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        63 Ton Ex-Stroke Power Press Machine-1
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030; font-weight:bold;'>41.2% ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › Kettle
+                                    </td>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        63 Ton Ex-Stroke Power Press Machine-2
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030; font-weight:bold;'>42.2% ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › RC Body Outer Shell
+                                    </td>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        40T Power Press Machine
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030; font-weight:bold;'>44.9% ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › RC Middle Tank
+                                    </td>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Pneumatic Power Press- 160T With Auto-feeder
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030; font-weight:bold;'>47.0% ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › Die Casting
+                                    </td>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        IMM-150T
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030; font-weight:bold;'>49.4% ↓</span>
+                                    </td>
+                                </tr></table></div></td></tr></table>
+                                <h3 style='font-size:20px; margin:25px 0 15px; font-weight:bold; color:#333;
+                                           border-left:5px solid #667eea; padding-left:12px;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Top 5 Good & Poor OEE Machines
+                                </h3>
+                                <table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse;'>
+                                <tr>
+                                    <td width='50%' valign='top' style='padding-right:10px;'>
+
+                                    <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                                border-top:4px solid #48bb78;
+                                                box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                    <h3 style='margin:0 0 10px; font-size:18px; color:#2f855a;
+                                               font-family:Times New Roman, Times, serif;'>
+                                        Section Wise Good OEE Machines
+                                    </h3>
+
+                                    <table width='100%' cellpadding='0' cellspacing='0'
+                                           style='border-collapse:collapse; font-family:Times New Roman, Times, serif; text-align:center;'>
+
+                                    <tr>
+                                        <th style='padding:8px; background:#c6f6d5; text-align:left; border-bottom:1px solid #ddd;'>Section</th>
+                                        <th style='padding:8px; background:#c6f6d5; text-align:left; border-bottom:1px solid #ddd;'>Machine</th>
+                                        <th style='padding:8px; background:#c6f6d5; border-bottom:1px solid #ddd;'>Availability%</th>
+                                        <th style='padding:8px; background:#c6f6d5; border-bottom:1px solid #ddd;'>Performance%</th>
+                                        <th style='padding:8px; background:#c6f6d5; border-bottom:1px solid #ddd;'>Quality%</th>
+                                        <th style='padding:8px; background:#c6f6d5; border-bottom:1px solid #ddd;'>OEE%</th>
+                                    </tr>
+                                    <tr style='background:#ffffff;'>
+                                        <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › Home Appliance
+                                        </td>
+                                        <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            Assembly Line-9
+                                        </td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    100.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    78.3%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    99.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    77.0%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9;'>
+                                        <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › Home Appliance
+                                        </td>
+                                        <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            Assembly Line-6
+                                        </td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    100.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    77.2%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    98.9%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    76.0%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                    </tr>
+                                    <tr style='background:#ffffff;'>
+                                        <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › PCBA
+                                        </td>
+                                        <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            PCB Assembly Line-2
+                                        </td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    100.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    75.9%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    99.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    75.0%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                    </tr>
+                                    <tr style='background:#f9f9f9;'>
+                                        <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › PCBA
+                                        </td>
+                                        <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            PCB Assembly Line-1
+                                        </td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    100.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    75.9%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    99.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    75.0%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                    </tr>
+                                    <tr style='background:#ffffff;'>
+                                        <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                            DIP › REL-THA › TV Production
+                                        </td>
+                                        <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                            TV Assembly Line 
+                                        </td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    100.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    74.5%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    99.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                        <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    74.0%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                    </tr></table></div></td>
+                                    <td width='50%' valign='top' style='padding-left:10px;'>
+
+                                    <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                                border-top:4px solid #f56565;
+                                                box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                    <h3 style='margin:0 0 10px; font-size:18px; color:#c53030;
+                                               font-family:Times New Roman, Times, serif;'>
+                                        Section Wise Poor OEE Machines
+                                    </h3>
+
+                                    <table width='100%' cellpadding='0' cellspacing='0'
+                                           style='border-collapse:collapse; font-family:Times New Roman, Times, serif; text-align:center;'>
+
+                                    <tr>
+                                        <th style='padding:8px; background:#fed7d7; text-align:left; border-bottom:1px solid #ddd;'>Section</th>
+                                        <th style='padding:8px; background:#fed7d7; text-align:left; border-bottom:1px solid #ddd;'>Machine</th>
+                                        <th style='padding:8px; background:#fed7d7; border-bottom:1px solid #ddd;'>Availability%</th>
+                                        <th style='padding:8px; background:#fed7d7; border-bottom:1px solid #ddd;'>Performance%</th>
+                                        <th style='padding:8px; background:#fed7d7; border-bottom:1px solid #ddd;'>Quality%</th>
+                                        <th style='padding:8px; background:#fed7d7; border-bottom:1px solid #ddd;'>OEE%</th>
+                                    </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › RC Body Outer Shell
+                                    </td>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        25T Power Press Machine -2
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    0.7%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#dd6b20;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    81.7%&nbsp;→  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    90.9%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    1.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › RC Body Outer Shell
+                                    </td>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        40T Power Press Machine
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    4.5%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    31.2%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    99.0%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    1.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › Kettle
+                                    </td>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        63 Ton Ex-Stroke Power Press Machine-2
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    5.4%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    29.8%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    91.3%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    1.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › Kettle
+                                    </td>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        63 Ton Ex-Stroke Power Press Machine-1
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    2.8%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    35.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    85.7%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    1.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; text-align:left; border-bottom:1px solid #eee;'>
+                                        DIP › REL-THA › Kettle
+                                    </td>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        80 Ton Power Press Machine
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    2.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    92.2%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#2f855a;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    88.1%&nbsp;↑  <!-- Non-breaking space -->
+                                </span></td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                <span style='
+                                    color:#c53030;
+                                    font-weight:bold;
+                                    white-space:nowrap;    /* Prevent line break */
+                                    display:inline-block;  /* Ensure arrow stays on the same line */
+                                '>
+                                    2.0%&nbsp;↓  <!-- Non-breaking space -->
+                                </span></td>
+                                </tr></table></div></td></tr></table>
+                            <h3 style='font-size:20px; margin:25px 0 15px; font-weight:bold; color:#333;
+                                       border-left:5px solid #667eea; padding-left:12px;
+                                       font-family:Times New Roman, Times, serif;'>
+                                Top Power & Labour Cost Analysis
+                            </h3>
+                                <table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse;'>
+                                <tr>
+                                        <td width='50%' valign='top' style='padding-right:10px;'>
+
+                                        <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                                    border-top:4px solid #ed8936;
+                                                    box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                        <h3 style='margin:0 0 10px; font-size:18px; color:#dd6b20;
+                                                   font-family:Times New Roman, Times, serif;'>
+                                            Top Power Consuming Machines (Per Unit)
+                                        </h3>
+
+                                        <table width='100%' cellpadding='0' cellspacing='0'
+                                               style='border-collapse:collapse; font-family:Times New Roman, Times, serif; text-align:center;'>
+
+                                        <tr>
+                                            <th style='padding:8px; background:#feebc8; text-align:left; border-bottom:1px solid #ddd;'>
+                                                Machine Name
+                                            </th>
+                                            <th style='padding:8px; background:#feebc8; border-bottom:1px solid #ddd;'>
+                                                Power Cost / Unit
+                                            </th>
+                                        </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        63 Ton Power Press Machine-1
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a; font-weight:bold;'>0.000 ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Base Clamp Multi Auto Tapping Machine
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a; font-weight:bold;'>0.000 ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        25T Power Press Machine -2
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a; font-weight:bold;'>0.000 ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        CNC lathe Machine-1
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a; font-weight:bold;'>0.000 ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Spot Welding Machine
+                                    </td>
+                                    <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a; font-weight:bold;'>0.000 ↓</span>
+                                    </td>
+                                </tr></table></div></td>
+                                <td width='50%' valign='top' style='padding-left:10px;'>
+
+                                <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                            border-top:4px solid #ed8936;
+                                            box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                <h3 style='margin:0 0 10px; font-size:18px; color:#dd6b20;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Machines With Highest Labour Cost
+                                </h3>
+
+                                <table width='100%' cellpadding='0' cellspacing='0'
+                                       style='border-collapse:collapse; font-family:Times New Roman, Times, serif; text-align:center;'>
+
+                                <tr>
+                                    <th style='padding:8px; background:#feebc8; text-align:left; border-bottom:1px solid #ddd;'>
+                                        Machine Name
+                                    </th>
+                                    <th style='padding:8px; background:#feebc8; border-bottom:1px solid #ddd;'>
+                                        Labour Cost / Unit
+                                    </th>
+                                </tr>
+                            <tr style='background:#ffffff;'>
+                                <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                    25T Power Press Machine -2
+                                </td>
+                                <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                    <span style='color:#c53030; font-weight:bold;'>349.087 ↑</span>
+                                </td>
+                            </tr>
+                            <tr style='background:#f9f9f9;'>
+                                <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                    Water Cooling Press Machine-1
+                                </td>
+                                <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                    <span style='color:#dd6b20; font-weight:bold;'>24.829 →</span>
+                                </td>
+                            </tr>
+                            <tr style='background:#ffffff;'>
+                                <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                    250 Ton Power Press Machine-1
+                                </td>
+                                <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                    <span style='color:#dd6b20; font-weight:bold;'>24.304 →</span>
+                                </td>
+                            </tr>
+                            <tr style='background:#f9f9f9;'>
+                                <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                    SS Pot Water Level Marking Machine
+                                </td>
+                                <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                    <span style='color:#dd6b20; font-weight:bold;'>24.067 →</span>
+                                </td>
+                            </tr>
+                            <tr style='background:#ffffff;'>
+                                <td style='padding:8px; text-align:left; font-weight:bold; border-bottom:1px solid #eee;'>
+                                    CNC lathe Machine-1
+                                </td>
+                                <td style='padding:8px; border-bottom:1px solid #eee;'>
+                                    <span style='color:#d69e2e; font-weight:bold;'>12.289 →</span>
+                                </td>
+                            </tr></table></div></td></tr></table>
+                                <h3 style='font-size:20px; margin:25px 0 15px; font-weight:bold; color:#333;
+                                           border-left:5px solid #667eea; padding-left:12px;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Top NPT Cause vs Reason Frequency
+                                </h3>
+                                <table width='100%' cellpadding='0' cellspacing='0' style='border-collapse:collapse;'>
+                                <tr>
+                                <td width='50%' valign='top' style='padding-right:10px;'>
+
+                                <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                            border-top:4px solid #9f7aea;
+                                            box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                <h3 style='margin:0 0 10px; font-size:18px; color:#6b46c1;
+                                           font-family:Times New Roman, Times, serif;'>
+                                    Top NPT Causes (By Duration)
+                                </h3>
+
+                                <table width='100%' cellpadding='0' cellspacing='0'
+                                       style='border-collapse:collapse; font-family:Times New Roman, Times, serif;'>
+
+                                <tr>
+                                    <th style='padding:8px; background:#e9d8fd; text-align:left; border-bottom:1px solid #ddd;'>
+                                        Cause
+                                    </th>
+                                    <th style='padding:8px; background:#e9d8fd; text-align:center; border-bottom:1px solid #ddd;'>
+                                        Duration
+                                    </th>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        No Demand
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030;font-weight:bold;'>1,210,835 ↑</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Shutdown (Scheduled)
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030;font-weight:bold;'>737,561 ↑</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Lunch/ Dinner Break
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#d69e2e;font-weight:bold;'>159,169 →</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Electrical problem
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a;font-weight:bold;'>70,346 ↓</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Mold Problem*
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#2f855a;font-weight:bold;'>55,474 ↓</span>
+                                    </td>
+                                </tr></table></div></td>
+                                    <td width='50%' valign='top' style='padding-left:10px;'>
+
+                                    <div style='background:#ffffff; border-radius:8px; padding:15px;
+                                                border-top:4px solid #9f7aea;
+                                                box-shadow:0 2px 8px rgba(0,0,0,0.05);'>
+
+                                    <h3 style='margin:0 0 10px; font-size:18px; color:#6b46c1;
+                                               font-family:Times New Roman, Times, serif;'>
+                                        Top NPT Reason Frequency
+                                    </h3>
+
+                                    <table width='100%' cellpadding='0' cellspacing='0'
+                                           style='border-collapse:collapse; font-family:Times New Roman, Times, serif;'>
+
+                                    <tr>
+                                        <th style='padding:8px; background:#e9d8fd; text-align:left; border-bottom:1px solid #ddd;'>
+                                            Cause
+                                        </th>
+                                        <th style='padding:8px; background:#e9d8fd; text-align:center; border-bottom:1px solid #ddd;'>
+                                            Count
+                                        </th>
+                                    </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        No Demand
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030;font-weight:bold;'>94 ↑</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Lunch/ Dinner Break
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030;font-weight:bold;'>50 ↑</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Washroom Break
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#c53030;font-weight:bold;'>37 ↑</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#f9f9f9;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Prayer Break*
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#dd6b20;font-weight:bold;'>27 ↑</span>
+                                    </td>
+                                </tr>
+                                <tr style='background:#ffffff;'>
+                                    <td style='padding:8px; font-weight:bold; border-bottom:1px solid #eee;'>
+                                        Mold Problem*
+                                    </td>
+                                    <td style='padding:8px; text-align:center; border-bottom:1px solid #eee;'>
+                                        <span style='color:#d69e2e;font-weight:bold;'>22 →</span>
+                                    </td>
+                                </tr></table></div></td></tr></table>
+                                </div> <!-- close email-body -->
+
+                                <div class='email-footer' style='
+                                    margin-top:30px;
+                                    padding:15px 20px;
+                                    background:#f4f6f9;
+                                    border-top:1px solid #dcdcdc;
+                                    text-align:center;
+                                    font-family:Arial, sans-serif;
+                                    font-size:13px;
+                                    color:#555;'>
+
+                                    <p style='margin:5px 0; font-weight:bold; color:#333;'>
+                                        Thanks & Regards
+                                    </p>
+
+                                    <p style='margin:5px 0; font-weight:bold; color:#6a1b9a;'>
+                                        Industrial Automation Team | MIS
+                                    </p>
+
+                                    <p style='margin:8px 0 0; font-size:11px; color:#888;'>
+                                        This is an automated email. Please do not reply to this message.
+                                    </p>
+                                </div>
+
+                            </div> <!-- close email-container -->
+                            </body>
+                            </html>
+                            

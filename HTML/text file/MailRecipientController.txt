@@ -1,0 +1,248 @@
+using BLL.MasterBLL.IRepositoryMaster;
+using DAL.Data;
+using DAL.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Threading.Tasks;
+
+namespace SmartManufacturingV2.Controllers.Master
+{
+    [Route("emailrecipient")]
+    public class EmailRecipientController : BaseController
+    {
+
+
+        private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWorkMaster _unitOfWork;
+
+        public EmailRecipientController(ApplicationDbContext context, IUnitOfWorkMaster unitOfWork)
+        {
+            _context = context;
+            _unitOfWork = unitOfWork;
+        }
+        [HttpGet("emailrecipient")]
+        public async Task<IActionResult> EmailRecipient()
+        {
+            var UserId = User.FindFirst("Id");
+            var RoleId = User.FindFirst("RoleId");
+            ViewBag.UserId = UserId!.Value;
+            ViewBag.RoleId = RoleId!.Value;
+
+            var userPermission = _unitOfWork.Common.GetUserPermissions(Convert.ToInt64(UserId!.Value));
+
+            if (userPermission[0].Count > 0 && RoleId!.Value != "1" && RoleId!.Value != "8" && RoleId!.Value != "3")
+            {
+                var locationList = await _unitOfWork.Location.GetAllAsync(filter: x => x.IsActive == true && x.IsDelete == false && userPermission[0].Contains(x.Id));
+                ViewBag.LocationList = locationList.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+            }
+            else
+            {
+                var locationList = await _unitOfWork.Location.GetAllAsync(filter: x => x.IsActive == true && x.IsDelete == false);
+                ViewBag.LocationList = locationList.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+            }
+            if (userPermission[1].Count > 0 && RoleId!.Value != "1" && RoleId!.Value != "8" && RoleId!.Value != "3")
+            {
+                var businessUnitList = await _unitOfWork.BusinessUnit.GetAllAsync(filter: x => x.IsActive == true && x.IsDelete == false && userPermission[1].Contains(x.Id));
+                ViewBag.BusinessUnitList = businessUnitList.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+            }
+            else
+            {
+                var businessUnitList = await _unitOfWork.BusinessUnit.GetAllAsync(filter: x => x.IsActive == true && x.IsDelete == false);
+                ViewBag.BusinessUnitList = businessUnitList.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                });
+            }
+
+            // Sections will be loaded dynamically → empty initially
+            ViewBag.SectionList = new SelectList(
+                new List<object>(), "Id", "Name"
+            );
+
+            return View();
+        }
+        [HttpPost("sendmail")]
+        public async Task<IActionResult> SendMail(
+    long id,
+    long? locationId,
+    long? businessUnitId,
+    long? sectionId,
+    string emailTo,
+    string emailCC,
+    string details)
+        {
+            if (!User.Identity.IsAuthenticated)
+                return Json(new { success = false, message = "Session expired. Please log in again." });
+
+            if (string.IsNullOrWhiteSpace(emailTo))
+                return Json(new { success = false, message = "Email To is required." });
+
+            
+
+            if (businessUnitId == null)
+                return Json(new { success = false, message = "Please select a business unit." });
+
+            try
+            {
+                // Normalize incoming emails
+                var toList = (emailTo ?? "")
+                    .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(e => e.Trim())
+                    .Where(e => !string.IsNullOrEmpty(e))
+                    .Distinct()
+                    .ToList();
+
+                var ccList = (emailCC ?? "")
+                    .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(e => e.Trim())
+                    .Where(e => !string.IsNullOrEmpty(e))
+                    .Distinct()
+                    .ToList();
+
+                // Check if a MailList already exists for this combination
+                var existing = await _context.MailLists.FirstOrDefaultAsync(m =>
+                    m.MailTypeId == id &&
+                    m.LocationId == locationId &&
+                    m.BusinessUnitId == businessUnitId &&
+                    m.SectionId == sectionId &&
+                    m.IsActive);
+
+                if (existing != null)
+                {
+                    // Merge with existing emails
+                    var existingTo = (existing.EmailTo ?? "")
+                        .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(e => e.Trim());
+
+                    var existingCc = (existing.EmailCC ?? "")
+                        .Split(new[] { ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
+                        .Select(e => e.Trim());
+
+                    existing.EmailTo = string.Join(",", existingTo.Union(toList).Distinct());
+                    existing.EmailCC = string.Join(",", existingCc.Union(ccList).Distinct());
+                    existing.Details = details;
+                    existing.CreatedAt = DateTime.Now;
+                    existing.CreatedBy = Convert.ToInt64(User.FindFirst("Id")?.Value ?? "0");
+
+                    _context.MailLists.Update(existing);
+                }
+                else
+                {
+                    var mailList = new MailLists
+                    {
+                        MailTypeId = id,
+                        LocationId = locationId,
+                        BusinessUnitId = businessUnitId,
+                        SectionId = sectionId,
+                        EmailTo = string.Join(",", toList),
+                        EmailCC = string.Join(",", ccList),
+                        Details = details,
+                        CreatedBy = Convert.ToInt64(User.FindFirst("Id")?.Value ?? "0"),
+                        CreatedAt = DateTime.Now,
+                        IsActive = true
+                    };
+
+                    _context.MailLists.Add(mailList);
+                }
+
+                await _context.SaveChangesAsync();
+                return Json(new { success = true, message = "Mail info saved successfully!" });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = $"Unexpected error: {ex.Message}" });
+            }
+        }
+
+        [HttpGet("getemails")]
+        public async Task<IActionResult> GetEmails(long? mailTypeId, long? businessUnitId, long? locationId, long? sectionId)
+        {
+            if (!mailTypeId.HasValue)
+                return Json(new { to = new List<string>(), cc = new List<string>() });
+
+            try
+            {
+                var query = _context.MailLists
+                    .Where(m => m.MailTypeId == mailTypeId && m.IsActive);
+
+                if (businessUnitId.HasValue)
+                    query = query.Where(m => m.BusinessUnitId == businessUnitId.Value);
+
+                if (locationId.HasValue)
+                    query = query.Where(m => m.LocationId == locationId.Value);
+
+                if (sectionId.HasValue)
+                    query = query.Where(m => m.SectionId == sectionId.Value);
+
+                // Get To emails
+                var emailToList = await query
+                    .Where(m => !string.IsNullOrEmpty(m.EmailTo))
+                    .Select(m => m.EmailTo)
+                    .ToListAsync();
+
+                // Get CC emails
+                var emailCCList = await query
+                    .Where(m => !string.IsNullOrEmpty(m.EmailCC))
+                    .Select(m => m.EmailCC)
+                    .ToListAsync();
+
+                // Flatten, split by comma, trim, deduplicate
+                var toEmails = emailToList
+                    .SelectMany(e => e.Split(',', ';'))
+                    .Select(e => e.Trim())
+                    .Where(e => !string.IsNullOrEmpty(e))
+                    .Distinct()
+                    .ToList();
+
+                var ccEmails = emailCCList
+                    .SelectMany(e => e.Split(',', ';'))
+                    .Select(e => e.Trim())
+                    .Where(e => !string.IsNullOrEmpty(e))
+                    .Distinct()
+                    .ToList();
+
+                return Json(new { to = toEmails, cc = ccEmails });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
+        }
+
+
+
+
+
+
+        [HttpGet("getall")]
+        public async Task<IActionResult> GetAll()
+        {
+            var data = await _context.MailLists
+                .Select(m => new {
+                    id = m.Id,
+                    name = m.EmailTo, // or another property for display
+                    isActive = m.IsActive
+                })
+                .ToListAsync();
+
+            return Json(new { data });
+        }
+
+
+    }
+}
