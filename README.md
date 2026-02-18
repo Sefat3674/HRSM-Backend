@@ -124,7 +124,7 @@ Content-Type: application/json
   "email": "chef1@example.com",
   "phone": "0172222222"
 }
-```
+
 Postman Test Script (Save Created User ID):
 pm.test("User Created", function () {
     pm.response.to.have.status(200);
