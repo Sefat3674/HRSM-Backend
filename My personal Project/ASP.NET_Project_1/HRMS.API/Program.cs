@@ -1,4 +1,6 @@
 ﻿using HRMS.DAL.Data;
+using HRMS.DAL.Repositories;
+using HRMS.DAL.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddDbContext<HRMSDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
+
+// 🔹 Register Repositories (Dependency Injection)
+builder.Services.AddScoped<IAttendanceRepo, AttendanceRepo>();
 
 // 🔹 Add OpenAPI/Swagger
 builder.Services.AddOpenApi();

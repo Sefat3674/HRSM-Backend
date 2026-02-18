@@ -173,6 +173,7 @@ namespace HRMS.API.Controllers
                 fullName = user.UserProfile.FullName,
                 email = user.UserProfile.Email,
                 roleName = user.Role?.RoleName ?? "User",
+                phone=user.UserProfile.Phone,
                 token
             });
         }

@@ -18,7 +18,7 @@ namespace HRMS.Domain.Entities
         [Required]
         public int RoleId { get; set; }
 
-        public bool IsActive { get; set; } = true;
+            public bool IsActive { get; set; } = true;
 
         public DateTime CreateAt { get; set; } = DateTime.Now;
 
@@ -27,5 +27,6 @@ namespace HRMS.Domain.Entities
         public Roles Role { get; set; }
 
         public UserProfile UserProfile { get; set; } // One-to-one
+        public ICollection<Attendance> Attendance { get; set; } = new List<Attendance>();
     }
 }
