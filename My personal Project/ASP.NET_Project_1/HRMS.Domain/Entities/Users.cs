@@ -28,5 +28,6 @@ namespace HRMS.Domain.Entities
 
         public UserProfile UserProfile { get; set; } // One-to-one
         public ICollection<Attendance> Attendance { get; set; } = new List<Attendance>();
+        public ICollection<SalaryStructure> SalaryStructure { get; set; } = new List<SalaryStructure>();
     }
 }
