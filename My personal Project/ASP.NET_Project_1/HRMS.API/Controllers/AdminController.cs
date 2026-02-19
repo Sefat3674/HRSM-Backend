@@ -30,7 +30,7 @@ namespace HRMS.API.Controllers
             // Check if username already exists
             if (await _context.Users.AnyAsync(u => u.UserName == dto.UserName))
                 return BadRequest(new { message = "Username already exists" });
-
+                
             // Check if email already exists
             if (await _context.UserProfile.AnyAsync(p => p.Email == dto.Email))
                 return BadRequest(new { message = "Email already exists" });
