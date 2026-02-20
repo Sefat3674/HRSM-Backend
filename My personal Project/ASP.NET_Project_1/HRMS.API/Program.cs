@@ -16,6 +16,7 @@ builder.Services.AddDbContext<HRMSDbContext>(options =>
 
 // 🔹 Register Repositories (Dependency Injection)
 builder.Services.AddScoped<IAttendanceRepo, AttendanceRepo>();
+builder.Services.AddScoped<ISalaryStructureRepo, SalaryStructureRepo>();
 
 // 🔹 Add OpenAPI/Swagger
 builder.Services.AddOpenApi();
