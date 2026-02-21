@@ -14,4 +14,9 @@
     <ProjectReference Include="..\HRMS.BLL\HRMS.BLL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="NewFolder1\" />
+    <Folder Include="NewFolder\" />
+  </ItemGroup>
+
 </Project>

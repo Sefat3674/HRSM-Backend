@@ -5,7 +5,7 @@ public class SalaryStructureDto
 
     public int SalaryStructureId { get; set; }
     public int UserId { get; set; }
-    public string UserName { get; set; }
+    public string? UserName { get; set; }
 
     public decimal BasicSalary { get; set; }
     public decimal HouseRentAllowance { get; set; }
@@ -15,12 +15,12 @@ public class SalaryStructureDto
 
     public decimal otherAllowance { get; set; }
 
-    public DateOnly EffectiveFrom { get; set; }
+    public DateOnly ?  EffectiveFrom { get; set; }
     public DateOnly? EffectiveTo { get; set; }
 
     public bool IsActive { get; set; } = true;
 
-    public Users Users { get; set; } = null!;
+    public Users? Users { get; set; } = null!;
 
 
 }
