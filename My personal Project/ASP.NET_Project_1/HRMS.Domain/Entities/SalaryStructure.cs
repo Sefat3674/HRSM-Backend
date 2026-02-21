@@ -24,10 +24,11 @@ namespace HRMS.Domain.Entities
         public bool IsActive { get; set; } = true;
 
         public bool IsDeleted { get; set; } = false;
-
         public Users Users { get; set; } = null!;
 
-   
+
+
+
 
     }
 }

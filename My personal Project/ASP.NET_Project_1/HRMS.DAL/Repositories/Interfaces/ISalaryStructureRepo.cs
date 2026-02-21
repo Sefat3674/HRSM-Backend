@@ -10,7 +10,7 @@ namespace HRMS.DAL.Repositories.Interfaces
     public interface ISalaryStructureRepo
     {
 
-     Task<List<UserSalaryDto>> GetAllSalaryStructuresAsync();
+     Task<List<UserSalaryDto>> GetAllSalaryStructuresAsync(int ? UserId);
 
        
 

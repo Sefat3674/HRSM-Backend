@@ -21,9 +21,12 @@ namespace HRMS.API.Controllers
             _SalaryStructureRepo = SalaryStructureRepo;
         }       
         [HttpGet("getusersalary")]
-        public async Task<IActionResult>GetUserSalary()
+        public async Task<IActionResult>GetUserSalary(int? UserId = null)
         {
-            var result=await _SalaryStructureRepo.GetAllSalaryStructuresAsync();
+            var result=await _SalaryStructureRepo.GetAllSalaryStructuresAsync(UserId);
+            if (result == null || !result.Any())
+                return NotFound(new { Message = "No salary data found." });
+
             return Ok(result);
         }
        
