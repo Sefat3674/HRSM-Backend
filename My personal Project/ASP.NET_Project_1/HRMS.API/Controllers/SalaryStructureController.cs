@@ -19,7 +19,7 @@ namespace HRMS.API.Controllers
         {
             _context = context;
             _SalaryStructureRepo = SalaryStructureRepo;
-        }
+        }       
         [HttpGet("getusersalary")]
         public async Task<IActionResult>GetUserSalary()
         {
