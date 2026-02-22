@@ -31,5 +31,7 @@ namespace HRMS.Domain.Entities
         public ICollection<SalaryStructure> SalaryStructure { get; set; } = new List<SalaryStructure>();
         public ICollection<SalaryRevisions> SalaryRevisions { get; set; } = new List<SalaryRevisions>();
         public virtual ICollection<SalaryRevisions> ApprovedSalaryRevisions { get; set; } = new List<SalaryRevisions>();
+        public ICollection<Deductions> Deductions { get; set; } = new List<Deductions>();
+        public ICollection<Bonuses> Bonuses { get; set; } = new List<Bonuses>();
     }
 }
