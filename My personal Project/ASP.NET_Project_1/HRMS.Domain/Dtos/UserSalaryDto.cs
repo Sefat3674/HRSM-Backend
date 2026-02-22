@@ -30,4 +30,21 @@ public class UserSalaryDto
     public string? Reason { get; set; }
     public int? ApprovedBy { get; set; }
 
+    public int BonusId { get; set; }
+
+    public string BonusType { get; set; } = string.Empty;
+    public decimal BonusAmount { get; set; }
+    public string? Description { get; set; }
+    public int BonusMonth { get; set; }
+    public int BonusYear { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public int DeductionId { get; set; }
+    public string DeductionType { get; set; } = string.Empty;
+    public decimal DeductionAmount { get; set; }
+    public string? DeductionDescription { get; set; }
+    public int DeductionMonth { get; set; }
+    public int DeductionYear { get; set; }
+    public DateTime DeductionCreatedAt { get; set; } = DateTime.UtcNow;
+
+
 }

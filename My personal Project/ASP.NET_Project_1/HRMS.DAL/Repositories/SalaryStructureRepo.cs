@@ -131,6 +131,45 @@ namespace HRMS.DAL.Repositories
 
             return newSalary.SalaryStructureId;
         }
+        public async Task<int> InsertSalaryBonusAsync(UserSalaryDto dto)
+        {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto));
+            var BonusDeduction = new Bonuses
+            {
+                UserId = dto.UserId,
+                BonusId = dto.BonusId,
+                BonusType = dto.BonusType,
+                BonusAmount = dto.BonusAmount,
+                Description = dto.Description,
+                BonusMonth = dto.BonusMonth,
+                BonusYear = dto.BonusYear,
+                
+            };
+            _context.Bonuses.Add(BonusDeduction);
+            await _context.SaveChangesAsync();
+            return BonusDeduction.UserId;
+
+        }
+        public async Task<int> InsertSalaryDeductionAsync(UserSalaryDto dto)
+        {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto));
+            var SalaryDeduction = new Deductions
+            {
+                DeductionType = dto.DeductionType,
+                DeductionAmount = dto.DeductionAmount,
+                DeductionDescription = dto.DeductionDescription,
+                DeductionMonth = dto.DeductionMonth,
+                DeductionYear = dto.DeductionYear
+
+            };
+            _context.Deductions.Add(SalaryDeduction);
+            await _context.SaveChangesAsync();
+            return SalaryDeduction.UserId;
+
+        }
+
 
     }
 }

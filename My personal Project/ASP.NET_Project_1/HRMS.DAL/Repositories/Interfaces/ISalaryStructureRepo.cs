@@ -12,8 +12,8 @@ namespace HRMS.DAL.Repositories.Interfaces
 
         Task<List<UserSalaryDto>> GetAllSalaryStructuresAsync(int? UserId);
         Task<int> UpsertSalaryStructureAsync(UserSalaryDto dto);
-
-
+        Task<int> InsertSalaryBonusAsync(UserSalaryDto dto);
+        Task<int> InsertSalaryDeductionAsync(UserSalaryDto dto);
 
 
 

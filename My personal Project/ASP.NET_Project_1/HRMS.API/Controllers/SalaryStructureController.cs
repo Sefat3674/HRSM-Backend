@@ -54,6 +54,17 @@ namespace HRMS.API.Controllers
             });
         }
 
+        public async Task<IActionResult> InsertSalaryBonus(int userId, [FromBody] UserSalaryDto dto)
+        {
+            dto.UserId = userId;
+            var result = await _SalaryStructureRepo.InsertSalaryBonusAsync(dto);
+            return Ok(new
+            {
+                Message = "Salary Bonuses Inserted successfully.",
+                BonusId = result
+            });
+        }
+
 
 
 

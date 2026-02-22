@@ -19,7 +19,7 @@ namespace HRMS.Domain.Entities
         [Required]
         [Column(TypeName = "decimal(18,2)")]
         [Range(0, double.MaxValue, ErrorMessage = "Amount must be non-negative")]
-        public decimal Amount { get; set; }
+        public decimal BonusAmount { get; set; }
 
         [MaxLength(500)]
         public string? Description { get; set; }

@@ -18,10 +18,10 @@ namespace HRMS.Domain.Entities
 
         [Required]
         [Column(TypeName = "decimal(18,2)")]
-        public decimal Amount { get; set; }
+        public decimal DeductionAmount { get; set; }
 
         [MaxLength(500)]
-        public string? Description { get; set; }
+        public string? DeductionDescription { get; set; }
 
         [Required]
         [Range(1, 12)]
@@ -31,7 +31,7 @@ namespace HRMS.Domain.Entities
         [Range(2000, 2100)]
         public int DeductionYear { get; set; }
 
-        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public DateTime DeductionCreatedAt { get; set; } = DateTime.UtcNow;
 
        
         [ForeignKey("UserId")]
