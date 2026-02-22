@@ -23,5 +23,11 @@ public class UserSalaryDto
 
     public Users? Users { get; set; } = null!;
 
+    public int RevisionId { get; set; }
+    public decimal OldSalary { get; set; }
+    public decimal NewSalary { get; set; }
+    public DateOnly RevisionDate { get; set; }
+    public string? Reason { get; set; }
+    public int? ApprovedBy { get; set; }
 
 }

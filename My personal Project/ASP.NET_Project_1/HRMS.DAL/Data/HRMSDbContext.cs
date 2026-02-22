@@ -13,6 +13,7 @@ namespace HRMS.DAL.Data
         public DbSet<UserProfile> UserProfile { get; set; }
         public DbSet<Attendance> Attendance { get; set; }
         public DbSet<SalaryStructure> SalaryStructure { get; set; }
+        public DbSet<SalaryRevisions>SalaryRevisions { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -58,6 +59,21 @@ namespace HRMS.DAL.Data
                  .WithMany(u => u.SalaryStructure)
                  .HasForeignKey(a => a.UserId)
                  .OnDelete(DeleteBehavior.Restrict);
+
+            // Users → SalaryRevisions (1-M) on UserId-UserId
+            modelBuilder.Entity<SalaryRevisions>()
+                 .HasOne(a => a.Users)
+                 .WithMany(u => u.SalaryRevisions)
+                 .HasForeignKey(a => a.UserId) 
+                 .OnDelete(DeleteBehavior.Restrict);
+
+            // Users → SalaryRevisions (1-M) on ApprovedBy-UserId
+            modelBuilder.Entity<SalaryRevisions>()
+                    // Approver relationship
+                    .HasOne(sr => sr.ApprovedByUser)
+                    .WithMany(u => u.ApprovedSalaryRevisions)
+                    .HasForeignKey(sr => sr.ApprovedBy)
+                    .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }       
