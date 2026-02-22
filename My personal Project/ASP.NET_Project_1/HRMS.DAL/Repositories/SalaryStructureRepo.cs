@@ -52,6 +52,12 @@ namespace HRMS.DAL.Repositories
         {
             if (dto == null)
                 throw new ArgumentNullException(nameof(dto));
+            decimal newGrossSalary = dto.BasicSalary
+                           + dto.HouseRentAllowance
+                           + dto.MedicalAllowance
+                           + dto.TransportAllowance
+                           + dto.otherAllowance;
+
 
             // Find existing salary for this UserId
             var existingSalary = await _context.SalaryStructure
@@ -59,6 +65,23 @@ namespace HRMS.DAL.Repositories
 
             if (existingSalary != null)
             {
+                decimal oldGrossSalary = existingSalary.BasicSalary
+                               + existingSalary.HouseRentAllowance
+                               + existingSalary.MedicalAllowance
+                               + existingSalary.TransportAllowance
+                               + existingSalary.otherAllowance;
+                var revision = new SalaryRevisions
+                {
+                    UserId = dto.UserId,
+                    OldSalary = oldGrossSalary,
+                    NewSalary = newGrossSalary,
+                    RevisionDate = DateOnly.FromDateTime(DateTime.Now),
+                    Reason = dto.Reason ?? "Salary Update",
+                    ApprovedBy = dto.ApprovedBy
+                };
+
+                _context.SalaryRevisions.Add(revision);
+
                 // --- UPDATE existing record ---
                 existingSalary.BasicSalary = dto.BasicSalary;
                 existingSalary.HouseRentAllowance = dto.HouseRentAllowance;
@@ -92,6 +115,18 @@ namespace HRMS.DAL.Repositories
             };
 
             _context.SalaryStructure.Add(newSalary);
+
+            var initialRevision = new SalaryRevisions
+            {
+                UserId = dto.UserId,
+                OldSalary = 0,
+                NewSalary = newGrossSalary,
+                RevisionDate = DateOnly.FromDateTime(DateTime.Now),
+                Reason = dto.Reason ?? "Initial Salary",
+                ApprovedBy = dto.ApprovedBy
+            };
+            _context.SalaryRevisions.Add(initialRevision);
+
             await _context.SaveChangesAsync();
 
             return newSalary.SalaryStructureId;
