@@ -68,7 +68,20 @@ namespace HRMS.API.Controllers
                 Message = "Salary bonuses and deductions inserted successfully.",
                 UserId = UserId
             });
+ }
+        [HttpGet("getSalaryAdjustmentByUser")]
+        public async Task<IActionResult> GetSalaryAdjustmentByUser([FromQuery] int UserId)
+        
+        {
+            var result = await _SalaryStructureRepo.GetSalaryAdjustmentByUserAsync(UserId);
+
+            if (result == null)
+                return NotFound("User not found or no salary records.");
+
+            return Ok(result);
         }
+
+
 
 
 

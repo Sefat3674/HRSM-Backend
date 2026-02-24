@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace HRMS.DAL.Repositories
 {
@@ -178,6 +179,40 @@ namespace HRMS.DAL.Repositories
 
             return true;
         }
+        public async Task<SalaryAdjustmentDto> GetSalaryAdjustmentByUserAsync(int userId)
+        {
+            var user = await _context.Users
+                .Where(u => u.UserId == userId)
+                .Select(u => new SalaryAdjustmentDto
+                {
+                    UserId = u.UserId,
+                    
+
+                    Bonuses = u.Bonuses
+                        .OrderBy(b => b.BonusYear)
+                        .ThenBy(b => b.BonusMonth)
+                        .Select(b => new BonusDto
+                        {
+                            BonusType = b.BonusType,
+                            Amount = b.BonusAmount,
+                            Description = $"{b.BonusMonth}/{b.BonusYear} - {b.Description}"
+                        }).ToList(),
+
+                    Deductions = u.Deductions
+                        .OrderBy(d => d.DeductionYear)
+                        .ThenBy(d => d.DeductionMonth)
+                        .Select(d => new DeductionDto
+                        {
+                            DeductionType = d.DeductionType,
+                            Amount = d.DeductionAmount,
+                            Description = $"{d.DeductionMonth}/{d.DeductionYear} - {d.DeductionDescription}"
+                        }).ToList()
+                })
+                .FirstOrDefaultAsync();
+
+            return user;
+        }
+
 
 
     }
