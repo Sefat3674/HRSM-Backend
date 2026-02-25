@@ -212,6 +212,51 @@ namespace HRMS.DAL.Repositories
 
             return user;
         }
+        public async Task<PayrollPeriodDto> CreatePayrollPeriod(PayrollPeriodDto dto)
+        {
+            if (dto == null)
+                throw new ArgumentNullException(nameof(dto));
+
+            // Optional: check duplicates
+            bool exists = await _context.PayrollPeriod
+                .AnyAsync(p => p.Month == dto.Month && p.Year == dto.Year);
+
+            if (exists)
+                throw new Exception("Payroll period already exists for this month and year.");
+
+            var newPayrollPeriod = new PayrollPeriod
+            {
+                PayrollCode = dto.PayrollCode,
+                Month = dto.Month,
+                Year = dto.Year,
+                StartDate = dto.StartDate,
+                EndDate = dto.EndDate,
+                Status = dto.Status,
+                IsLocked = false,
+                CreatedBy = dto.CreatedBy,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.PayrollPeriod.Add(newPayrollPeriod);
+            await _context.SaveChangesAsync();
+
+            // Map entity back to DTO
+            var resultDto = new PayrollPeriodDto
+            {
+                PayrollPeriodId = newPayrollPeriod.PayrollPeriodId,
+                PayrollCode = newPayrollPeriod.PayrollCode,
+                Month = newPayrollPeriod.Month,
+                Year = newPayrollPeriod.Year,
+                StartDate = newPayrollPeriod.StartDate,
+                EndDate = newPayrollPeriod.EndDate,
+                Status = newPayrollPeriod.Status,
+                IsLocked = newPayrollPeriod.IsLocked,
+                CreatedBy = newPayrollPeriod.CreatedBy,
+                CreatedAt = newPayrollPeriod.CreatedAt
+            };
+
+            return resultDto;
+        }
 
 
 

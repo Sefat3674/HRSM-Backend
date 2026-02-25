@@ -16,6 +16,7 @@ namespace HRMS.DAL.Data
         public DbSet<SalaryRevisions>SalaryRevisions { get; set; }
         public DbSet<Deductions> Deductions { get; set; }
         public DbSet<Bonuses> Bonuses { get; set; }
+        public DbSet<PayrollPeriod> PayrollPeriod { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -81,6 +81,21 @@ namespace HRMS.API.Controllers
             return Ok(result);
         }
 
+        [HttpPost("insertPayroll")]
+        public async Task<IActionResult> InsertPayroll([FromBody] PayrollPeriodDto dto)
+        {
+            if (dto == null)
+                return BadRequest("Payroll data is required.");
+
+            var result = await _SalaryStructureRepo.CreatePayrollPeriod(dto);
+
+            return Ok(new
+            {
+                Message = "Payroll inserted successfully.",
+                Payroll = result // full DTO
+            });
+        }
+
 
 
 
