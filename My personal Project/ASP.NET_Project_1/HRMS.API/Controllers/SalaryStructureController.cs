@@ -147,7 +147,51 @@ namespace HRMS.API.Controllers
             {
                 return StatusCode(500, new { error = ex.Message });
             }
+        }
+
+        [HttpPost("runPayroll")]
+        public IActionResult RunPayroll([FromBody] PayrollPreviewRequestDto dto)
+        {
+            if (dto == null)
+                return BadRequest("Request body is required.");
+
+            try
+            {
+                var connectionString = _context.Database.GetDbConnection().ConnectionString;
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlCommand cmd = new SqlCommand("dbo.sp_RunPayroll", conn))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@UserId", dto.UserId);
+                    cmd.Parameters.AddWithValue("@Month", dto.Month);
+                    cmd.Parameters.AddWithValue("@Year", dto.Year);
+
+                    conn.Open();
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        var rows = new List<Dictionary<string, object>>();
+
+                        while (reader.Read())
+                        {
+                            var row = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row[reader.GetName(i)] = reader.IsDBNull(i) ? null : reader.GetValue(i);
+                            }
+                            rows.Add(row);
+                        }
+
+                        return Ok(rows); // returns JSON
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = ex.Message });
+            }
+        }
     }
 
 
