@@ -5,7 +5,7 @@ namespace HRMS.Domain.Entities
 {
     public class PayrollPeriodDto
     {
-        
+        public int UserId { get; set; }
         public int PayrollPeriodId { get; set; }
         public string PayrollCode { get; set; }
         public int Month { get; set; }
