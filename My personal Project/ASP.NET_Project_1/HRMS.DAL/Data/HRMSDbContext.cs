@@ -105,6 +105,12 @@ namespace HRMS.DAL.Data
                       .HasForeignKey(s => s.UserId)
                       .OnDelete(DeleteBehavior.Restrict); // or Cascade (your choice)
             });
+            // PayrollPeriod → SalarySlip
+            modelBuilder.Entity<SalarySlip>()
+                 .HasOne(a => a.PayrollPeriod)
+                 .WithMany(u => u.SalarySlips)
+                 .HasForeignKey(a => a.PayrollPeriodId)
+                 .OnDelete(DeleteBehavior.Restrict);
 
         }
     }
