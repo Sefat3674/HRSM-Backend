@@ -18,7 +18,9 @@ namespace HRMS.DAL.Data
         public DbSet<Bonuses> Bonuses { get; set; }
         public DbSet<PayrollPeriod> PayrollPeriod { get; set; }
         public DbSet<SalarySlip> SalarySlip { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
+        public DbSet<Retailer>Retailers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
