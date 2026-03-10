@@ -3,16 +3,17 @@ using System.ComponentModel.DataAnnotations;
 
 namespace HRMS.Domain.Entities
 {
-    public class Catagories
+    public class Categories
     {
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; } 
-        public bool IsActived { get; set; }
-        public DateTime? Date { get; set; }
-     
-        public String? Status { get; set; }
-        public Users Users { get; set; } = null!;
+        public bool IsActive { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public ICollection<SubCategories> SubCategories { get; set; } = new List<SubCategories>();
+
+
     }
 }

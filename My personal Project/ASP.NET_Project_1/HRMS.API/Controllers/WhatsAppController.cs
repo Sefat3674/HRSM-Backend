@@ -129,6 +129,50 @@ namespace HRMS.API.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+        [HttpGet("getCategories")]
+        public async Task<ActionResult<IEnumerable<Categories>>> GetAll()
+        {
+            var categories = await _context.Categories.ToListAsync();
+            return Ok(categories);
+        }
+
+        [HttpGet("{categoryId}")]
+        public async Task<ActionResult<IEnumerable<SubCategories>>> GetSubCategoriesByCategory(int categoryId)
+        {
+            // Check if category exists
+            var categoryExists = await _context.Categories.AnyAsync(c => c.Id == categoryId);
+            if (!categoryExists)
+            {
+                return NotFound(new { message = "Category not found" });
+            }
+
+            // Get subcategories with prices
+            var subCategories = await _context.SubCategories
+                .Where(s => s.CategoryId == categoryId)
+                .Include(s => s.Prices) // include price info
+                .ToListAsync();
+
+            if (subCategories == null || !subCategories.Any())
+            {
+                return NotFound(new { message = "No subcategories found for this category" });
+            }
+
+            // Optional: format result for cleaner JSON
+            var result = subCategories.Select(s => new
+            {
+                s.Id,
+                s.Name,
+                s.Description,
+                s.IsActive,
+                Prices = s.Prices.Select(p => new
+                {
+                    p.Price,
+                    p.EffectiveDate
+                })
+            });
+
+            return Ok(result);
+        }
 
     }
 }

@@ -21,6 +21,9 @@ namespace HRMS.DAL.Data
         public DbSet<Message> Messages { get; set; }
 
         public DbSet<Retailer>Retailers { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<SubCategories> SubCategories { get; set; }
+        public DbSet<Prices> Prices { get; set; }
         public DbSet<WhatsAppSessions> WhatsAppSessions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -115,6 +118,15 @@ namespace HRMS.DAL.Data
                  .HasForeignKey(a => a.PayrollPeriodId)
                  .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Categories>()
+               .HasMany(c => c.SubCategories)
+               .WithOne(s => s.Categories)
+               .HasForeignKey(s => s.CategoryId);
+
+            modelBuilder.Entity<SubCategories>()
+                .HasMany(s => s.Prices)
+                .WithOne(p => p.SubCategories)
+                .HasForeignKey(p => p.SubCategoryId);
         }
     }
 }       
