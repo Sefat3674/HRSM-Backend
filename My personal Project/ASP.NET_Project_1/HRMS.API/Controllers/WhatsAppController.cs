@@ -92,5 +92,43 @@ namespace HRMS.API.Controllers
                 message = "Retailer registered successfully"
             });
         }
+
+        [HttpGet("session")]
+        public async Task<IActionResult> GetSession([FromQuery] string phone)
+        {
+            var session = await _context.WhatsAppSessions
+                .FirstOrDefaultAsync(s => s.Phone == phone);
+
+            if (session == null)
+            {
+                return Ok(new WhatsAppSessions
+                {
+                    Phone = phone,
+                    CurrentStep = "MENU",
+                    TempData = "",
+                    UpdatedAt = DateTime.Now
+                });
+            }
+
+            return Ok(session);
+        }
+        // Update session
+        [HttpPost("session")]
+        public async Task<IActionResult> UpdateSession([FromBody] WhatsAppSessions session)
+        {
+            var existing = await _context.WhatsAppSessions
+                .FirstOrDefaultAsync(s => s.Phone == session.Phone);
+            if (existing == null)
+                _context.WhatsAppSessions.Add(session);
+            else
+            {
+                existing.CurrentStep = session.CurrentStep;
+                existing.TempData = session.TempData;
+                existing.UpdatedAt = DateTime.Now;
+            }
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
     }
 }

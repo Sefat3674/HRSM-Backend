@@ -21,6 +21,7 @@ namespace HRMS.DAL.Data
         public DbSet<Message> Messages { get; set; }
 
         public DbSet<Retailer>Retailers { get; set; }
+        public DbSet<WhatsAppSessions> WhatsAppSessions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
