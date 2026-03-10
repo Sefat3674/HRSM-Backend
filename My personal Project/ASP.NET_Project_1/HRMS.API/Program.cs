@@ -22,15 +22,17 @@ builder.Services.AddScoped<ISalaryStructureRepo, SalaryStructureRepo>();
 builder.Services.AddOpenApi();
 
 // 🔹 Add CORS for Angular frontend
-var frontendOrigin = "http://localhost:4200";
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "AllowAngularApp",
         policy =>
         {
-            policy.WithOrigins(frontendOrigin)
-                  .AllowAnyHeader()
-                  .AllowAnyMethod();
+            policy.WithOrigins(
+                "http://localhost:4200",
+                "http://localhost:7285"
+            )
+            .AllowAnyHeader()
+            .AllowAnyMethod();
         });
 });
 
@@ -48,6 +50,7 @@ app.UseHttpsRedirection();
 app.UseCors("AllowAngularApp");
 
 app.UseAuthorization();
+app.UseStaticFiles();
 
 app.MapControllers();
 

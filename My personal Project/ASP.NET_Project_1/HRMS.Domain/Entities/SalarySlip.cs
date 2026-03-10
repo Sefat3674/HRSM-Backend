@@ -51,5 +51,8 @@ namespace HRMS.Domain.Entities
         /* Navigation Property */
         [ForeignKey("UserId")]
         public virtual Users Users { get; set; } = null!;
+        public int PayrollPeriodId { get; set; }
+
+        public virtual PayrollPeriod PayrollPeriod { get; set; } = null!;
     }
 }

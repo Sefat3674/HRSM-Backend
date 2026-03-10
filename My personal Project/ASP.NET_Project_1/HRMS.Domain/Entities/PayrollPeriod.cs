@@ -27,6 +27,7 @@ namespace HRMS.Domain.Entities
         public int ? ApprovedBy { get; set; }
         public DateTime ? ApprovedAt { get; set; }
         public bool IsLocked {  get; set; }
-        
+        public virtual ICollection<SalarySlip> SalarySlips { get; set; } = new List<SalarySlip>();
+
     }
 }

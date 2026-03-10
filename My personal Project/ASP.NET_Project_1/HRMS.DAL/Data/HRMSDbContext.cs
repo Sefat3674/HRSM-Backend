@@ -18,7 +18,13 @@ namespace HRMS.DAL.Data
         public DbSet<Bonuses> Bonuses { get; set; }
         public DbSet<PayrollPeriod> PayrollPeriod { get; set; }
         public DbSet<SalarySlip> SalarySlip { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
+        public DbSet<Retailer>Retailers { get; set; }
+        public DbSet<Categories> Categories { get; set; }
+        public DbSet<SubCategories> SubCategories { get; set; }
+        public DbSet<Prices> Prices { get; set; }
+        public DbSet<WhatsAppSessions> WhatsAppSessions { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -105,7 +111,22 @@ namespace HRMS.DAL.Data
                       .HasForeignKey(s => s.UserId)
                       .OnDelete(DeleteBehavior.Restrict); // or Cascade (your choice)
             });
+            // PayrollPeriod → SalarySlip
+            modelBuilder.Entity<SalarySlip>()
+                 .HasOne(a => a.PayrollPeriod)
+                 .WithMany(u => u.SalarySlips)
+                 .HasForeignKey(a => a.PayrollPeriodId)
+                 .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<Categories>()
+               .HasMany(c => c.SubCategories)
+               .WithOne(s => s.Categories)
+               .HasForeignKey(s => s.CategoryId);
+
+            modelBuilder.Entity<SubCategories>()
+                .HasMany(s => s.Prices)
+                .WithOne(p => p.SubCategories)
+                .HasForeignKey(p => p.SubCategoryId);
         }
     }
 }       
