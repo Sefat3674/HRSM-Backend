@@ -25,6 +25,8 @@ namespace HRMS.DAL.Data
         public DbSet<SubCategories> SubCategories { get; set; }
         public DbSet<Prices> Prices { get; set; }
         public DbSet<WhatsAppSessions> WhatsAppSessions { get; set; }
+        public DbSet<Orders> Orders { get; set; }
+        public DbSet<OrderItems> OrderItems { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -126,6 +128,11 @@ namespace HRMS.DAL.Data
             modelBuilder.Entity<SubCategories>()
                 .HasMany(s => s.Prices)
                 .WithOne(p => p.SubCategories)
+                .HasForeignKey(p => p.SubCategoryId);
+
+            modelBuilder.Entity<Orders>()
+                .HasMany(s => s.OrderItems)
+                .WithOne(p => p.Orders)
                 .HasForeignKey(p => p.SubCategoryId);
         }
     }
