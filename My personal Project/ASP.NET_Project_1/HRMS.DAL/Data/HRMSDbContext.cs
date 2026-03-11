@@ -133,7 +133,7 @@ namespace HRMS.DAL.Data
             modelBuilder.Entity<Orders>()
                 .HasMany(s => s.OrderItems)
                 .WithOne(p => p.Orders)
-                .HasForeignKey(p => p.SubCategoryId);
+                .HasForeignKey(p => p.OrderId);
         }
     }
 }       

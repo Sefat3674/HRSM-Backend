@@ -174,5 +174,78 @@ namespace HRMS.API.Controllers
             return Ok(result);
         }
 
+        [HttpPost("OrderItem")]
+        public async Task<IActionResult> CreateOrder([FromBody] OrderCreateDto dto)
+        {
+            if (dto == null || dto.Items == null || !dto.Items.Any())
+                return BadRequest("Order must contain at least one item.");
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                var order = new Orders
+                {
+                    Phone = dto.Phone,
+                    OrderDate = DateTime.Now,
+                    OrderItems = new List<OrderItems>()
+                };
+
+                foreach (var itemDto in dto.Items)
+                {
+                    if (itemDto.Quantity <= 0)
+                        return BadRequest($"Invalid quantity for SubCategoryId {itemDto.SubCategoryId}");
+
+                    // Get latest price
+                    var latestPrice = await _context.Prices
+                        .Where(p => p.SubCategoryId == itemDto.SubCategoryId)
+                        .OrderByDescending(p => p.EffectiveDate)
+                        .FirstOrDefaultAsync();
+
+                    if (latestPrice == null)
+                        return BadRequest($"No price found for SubCategoryId {itemDto.SubCategoryId}");
+
+                    var orderItem = new OrderItems
+                    {
+                        SubCategoryId = itemDto.SubCategoryId,
+                        Quantity = itemDto.Quantity,
+                        UnitPrice = latestPrice.Price,
+                        TotalPrice = latestPrice.Price * itemDto.Quantity
+                    };
+
+                    order.OrderItems.Add(orderItem);
+                }
+
+                // Calculate totals
+                order.CalculateTotals();
+
+                _context.Orders.Add(order);
+                await _context.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+
+                return Ok(new
+                {
+                    OrderId = order.Id,
+                    Phone = order.Phone,
+                    OrderDate = order.OrderDate,
+                    TotalItems = order.TotalQuantity,
+                    TotalCost = order.TotalCost,
+                    Items = order.OrderItems.Select(i => new
+                    {
+                        i.SubCategoryId,
+                        i.Quantity,
+                        i.UnitPrice,
+                        i.TotalPrice
+                    })
+                });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return StatusCode(500, ex.Message);
+            }
+        }
+
     }
 }

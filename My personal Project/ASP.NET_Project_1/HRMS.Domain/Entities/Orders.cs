@@ -23,5 +23,18 @@ namespace HRMS.Domain.Entities
 
         // Navigation property
         public ICollection<OrderItems> OrderItems { get; set; } = new List<OrderItems>();
+        public void CalculateTotals()
+        {
+            TotalQuantity = 0;
+            TotalCost = 0;
+
+            foreach (var item in OrderItems)
+            {
+                item.TotalPrice = item.Quantity * item.UnitPrice;
+
+                TotalQuantity += item.Quantity;
+                TotalCost += item.TotalPrice;
+            }
+        }
     }
 }
