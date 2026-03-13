@@ -20,7 +20,7 @@ namespace HRMS.Domain.Entities
 
         [ForeignKey("SubCategoryId")]
         public SubCategories SubCategories { get; set; } = null!;
-
+        
         [Required]
         public int Quantity { get; set; }
 

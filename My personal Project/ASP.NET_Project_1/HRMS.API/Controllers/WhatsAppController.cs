@@ -191,17 +191,23 @@ namespace HRMS.API.Controllers
                     OrderItems = new List<OrderItems>()
                 };
 
+                // Get all SubCategory IDs from DTO
+                var subCategoryIds = dto.Items.Select(i => i.SubCategoryId).ToList();
+
+                // Fetch latest prices with SubCategory navigation property
+                var latestPrices = await _context.Prices
+                    .Include(p => p.SubCategories) // include SubCategory for name
+                    .Where(p => subCategoryIds.Contains(p.SubCategoryId))
+                    .GroupBy(p => p.SubCategoryId)
+                    .Select(g => g.OrderByDescending(p => p.EffectiveDate).FirstOrDefault())
+                    .ToListAsync();
+
                 foreach (var itemDto in dto.Items)
                 {
                     if (itemDto.Quantity <= 0)
                         return BadRequest($"Invalid quantity for SubCategoryId {itemDto.SubCategoryId}");
 
-                    // Get latest price
-                    var latestPrice = await _context.Prices
-                        .Where(p => p.SubCategoryId == itemDto.SubCategoryId)
-                        .OrderByDescending(p => p.EffectiveDate)
-                        .FirstOrDefaultAsync();
-
+                    var latestPrice = latestPrices.FirstOrDefault(p => p.SubCategoryId == itemDto.SubCategoryId);
                     if (latestPrice == null)
                         return BadRequest($"No price found for SubCategoryId {itemDto.SubCategoryId}");
 
@@ -213,6 +219,9 @@ namespace HRMS.API.Controllers
                         TotalPrice = latestPrice.Price * itemDto.Quantity
                     };
 
+                    // Set navigation property manually (optional if using lazy loading)
+                    orderItem.SubCategories = latestPrice.SubCategories;
+
                     order.OrderItems.Add(orderItem);
                 }
 
@@ -221,9 +230,9 @@ namespace HRMS.API.Controllers
 
                 _context.Orders.Add(order);
                 await _context.SaveChangesAsync();
-
                 await transaction.CommitAsync();
 
+                // Return JSON with SubCategoryName dynamically from navigation
                 return Ok(new
                 {
                     OrderId = order.Id,
@@ -234,6 +243,7 @@ namespace HRMS.API.Controllers
                     Items = order.OrderItems.Select(i => new
                     {
                         i.SubCategoryId,
+                        SubCategoryName = i.SubCategories.Name, // dynamically get from navigation
                         i.Quantity,
                         i.UnitPrice,
                         i.TotalPrice
